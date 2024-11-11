@@ -30,6 +30,14 @@ class Issue(models.Model):
         on_delete=models.CASCADE,
         related_name="assignee"
     )
+    priority = models.ForeignKey(
+        Priority,
+        on_delete=models.CASCADE
+    )
+    status= models.ForeignKey(
+        Status,
+        on_delete=models.CASCADE
+    )
     created_on = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):

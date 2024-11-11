@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Issues{% endblock title %}
+
+{% block content %}
+    <h1>Issues</h1>
+    <div class="container text-center">
+        <div class="row">
+        {% for issues in to_do_list %}
+      <div class="col">
+            <h1>To Do</h1>
+            <div class="card-body">
+                <h5 class="card-title">{{post.title}}</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">{{post.subtitle}}</h6>
+                <small>By: {{ post.author }} | On {{ post.created_on }}</small>
+                <p class="card-text">{{post.body|truncatechars:64}}</p>
+                <a href="{% url 'detail' post.id %}" class="card-link">Continue reading</a>
+            </div>
+      </div>
+      {% endfor %}
+      {% for issues in in_progress_list %}
+      <div class="col">
+           <h1> In Progress</h1>
+           <div class="card-body">
+                <h5 class="card-title">{{post.title}}</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">{{post.subtitle}}</h6>
+                <small>By: {{ post.author }} | On {{ post.created_on }}</small>
+                <p class="card-text">{{post.body|truncatechars:64}}</p>
+                <a href="{% url 'detail' post.id %}" class="card-link">Continue reading</a>
+            </div>
+      </div>
+      {% endfor %}
+      {% for issues in done_list %}
+      <div class="col">
+            <h1> Done</h1>
+            <div class="card-body">
+                <h5 class="card-title">{{post.title}}</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">{{post.subtitle}}</h6>
+                <small>By: {{ post.author }} | On {{ post.created_on }}</small>
+                <p class="card-text">{{post.body|truncatechars:64}}</p>
+                <a href="{% url 'detail' post.id %}" class="card-link">Continue reading</a>
+            </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+<br />
+{% endblock content %}

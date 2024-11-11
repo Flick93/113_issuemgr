@@ -9,7 +9,7 @@ def populate_role(apps, schemaeditor):
         "scrum master": "The team's coach",
         "product owner": "Responsible for defining work and deliverables"
     }
-    Role = apps.get_model("accounts", "role")
+    Role = apps.get_model("accounts", "Role")
     for key, value in entries.items():
         role = Role(name=key, description=value)
         role.save()
@@ -23,4 +23,5 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
+        migrations.RunPython(populate_role)
     ]
